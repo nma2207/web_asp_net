@@ -15,8 +15,7 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            Label1.Text = k.ToString();
-            k++;
+            Label1.Text = DateTime.Now.ToString("hh:mm:ss");
             //timer1 = new Timer();
             //timer1.Interval = 10;
             //timer1.Enabled = true;

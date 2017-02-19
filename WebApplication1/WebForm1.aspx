@@ -13,7 +13,7 @@
          <h1><div align="center"> 
             <asp:UpdatePanel ID="UpdatePanel1" runat="server"> 
             <ContentTemplate > 
-                <asp:Timer ID="Timer1" runat="server" Interval="599"> 
+                <asp:Timer ID="Timer1" runat="server" Interval="999"> 
                 </asp:Timer>
                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> 
             </ContentTemplate> 
