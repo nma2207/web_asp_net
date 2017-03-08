@@ -10,7 +10,7 @@ namespace Mvc_site.Models
         public int id { get; set; }
         public string person { get; set; }
         public string address { get; set; }
-        public string bookId { get; set; }
+        public int bookId { get; set; }
         public DateTime date { get; set; }
 
     }

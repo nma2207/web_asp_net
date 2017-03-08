@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Mvc_site.Models;
+using System.Data.Entity;
 
 namespace Mvc_site
 {
@@ -19,6 +21,8 @@ namespace Mvc_site
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Database.SetInitializer(new BookStore.BookDbInitializer());
+            
         }
     }
 }

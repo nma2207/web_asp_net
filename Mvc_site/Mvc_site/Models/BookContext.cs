@@ -8,7 +8,8 @@ namespace Mvc_site.Models
 {
     public class BookContext: DbContext
     {
-        public DbSet<Book> books { get; set; }
-        public DbSet<Purchase> purcases { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Purchase> Purcases { get; set; }
+        public DbSet<Person> Persons { get; set; }
     }
 }

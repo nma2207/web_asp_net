@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "Shared\\_Layout.cshtml";
+}
+<div>
+    <h3>Пользователи</h3>
+    <table>
+        <tr class="header">
+            <td><p>id</p></td>
+            <td><p>имя</p></td>
+            <td><p>мыло</p></td>
+            <td><p>пароль</p></td>
+            <td></td>
+        </tr>
+
+        @foreach (var p in ViewBag.Persons)
+        {
+            <tr>
+                <td><p>@p.id</p></td>
+                <td><p>@p.name</p></td>
+                <td><p>@p.email</p></td>
+                <td><p>@p.password</p></td>
+            </tr>
+        }
+    </table>
+</div>
