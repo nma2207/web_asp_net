@@ -36,15 +36,16 @@ namespace Mvc_site.Controllers
         [HttpGet]
         public ActionResult AllPersons()
         {
-            IEnumerable<Person> persons = db.Persons;
-            ViewBag.Persons = persons;
+            IEnumerable<Person> persons = db.People;
+            ViewBag.People = persons;
             return View();
         }
         [HttpPost]
         public string Reg(Person per)
         {
-            db.Persons.Add(per);
-            return "<h1 align='center' >" + per.name + ", Вы зареганы </h1>";
+            db.Entry(per).State = EntityState.Added;
+            db.SaveChanges();
+            return "<h1 align='center' >" + per.name +", Вы зареганы </h1>";
         }
         [HttpGet]
         public string square(int a, int b)
