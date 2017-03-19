@@ -1,6 +1,0 @@
-D:\учеба\web\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
-D:\учеба\web\WebApplication1\WebApplication1\bin\WebApplication1.dll
-D:\учеба\web\WebApplication1\WebApplication1\bin\WebApplication1.pdb
-D:\учеба\web\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
-D:\учеба\web\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
-D:\учеба\web\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb

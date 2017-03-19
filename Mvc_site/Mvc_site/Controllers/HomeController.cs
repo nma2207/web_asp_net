@@ -43,6 +43,7 @@ namespace Mvc_site.Controllers
         [HttpPost]
         public string Reg(Person per)
         {
+            per.password = hash(per.password);
             db.Entry(per).State = EntityState.Added;
             db.SaveChanges();
             return "<h1 align='center' >" + per.name +", Вы зареганы </h1>";
@@ -60,6 +61,16 @@ namespace Mvc_site.Controllers
             db.SaveChanges();
             return "Спасибо, " + purchase.person + ", за покупку!";
 
+        }
+        private string hash(string pass)
+        {
+            int n = pass.Length;
+            string new_pass="";
+            foreach(char s in pass)
+            {
+                new_pass += (Convert.ToChar(s + n)).ToString();
+            }
+            return new_pass;
         }
 
     }
