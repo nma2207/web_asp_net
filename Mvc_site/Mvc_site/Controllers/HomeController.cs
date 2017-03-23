@@ -62,6 +62,13 @@ namespace Mvc_site.Controllers
             return "Спасибо, " + purchase.person + ", за покупку!";
 
         }
+        [HttpGet] 
+        public ActionResult AllPurchases()
+        {
+            IEnumerable<Purchase> purchases = db.Purcases;
+            ViewBag.Purchases = purchases;
+            return View();
+        }
         private string hash(string pass)
         {
             int n = pass.Length;
