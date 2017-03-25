@@ -23,6 +23,7 @@ namespace Mvc_site.Controllers
         public void add(Book b)
         {
             //cont_.Add(b);
+            //I like kostili and bikes
             int j = -1;
             for(int i=0; i<books_.Count;i++)
             {
