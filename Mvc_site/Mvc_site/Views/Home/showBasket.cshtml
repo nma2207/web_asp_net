@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "Shared\\_Layout.cshtml";
+}
+<div>
+    <h3>Пользователи</h3>
+    <table>
+        <tr class="header">
+            <td><p>id</p></td>
+            <td><p>имя</p></td>
+            <td><p>автор</p></td>
+            <td><p>цена</p></td>
+            <td><p>Кол-во</p></td>
+            <td></td>
+        </tr>
+
+        @for(int i=0; i<ViewBag.basket.Count; i++)
+        {
+            <tr>
+                <td><p>@ViewBag.basket[i].id</p></td>
+                <td><p>@ViewBag.basket[i].name</p></td>
+                <td><p>@ViewBag.basket[i].author</p></td>
+                <td><p>@ViewBag.basket[i].price</p></td>
+                <td><p>@ViewBag.count[i]</p></td>
+            </tr>
+        }
+        
+    </table>
+    <h2>ИТОГО: @ViewBag.sum</h2>
+</div>

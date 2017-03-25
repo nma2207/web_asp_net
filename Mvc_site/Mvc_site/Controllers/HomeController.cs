@@ -9,17 +9,64 @@ using System.Web.Routing;
 
 namespace Mvc_site.Controllers
 {
+
+    class Basket
+    {
+        List<Book> books_;
+        List<int> count_;
+        int sum_;
+        public Basket()
+        {
+            books_ = new List<Book>();
+            count_ = new List<int>();
+        }
+        public void add(Book b)
+        {
+            //cont_.Add(b);
+            int j = -1;
+            for(int i=0; i<books_.Count;i++)
+            {
+                if (books_[i].id == b.id)
+                {
+                    j = i;
+                    break;
+                }
+            }
+            if(j!=-1)
+            {
+                count_[j]++;
+            }
+            else
+            {
+                books_.Add(b);
+                count_.Add(1);
+            }
+            sum_ += b.price;
+        }
+        public int sum
+        {
+            get { return sum_; }
+        }
+        public List<Book> books
+        {
+            get { return books_; }
+        }
+        public List<int> count
+        {
+            get { return count_; }
+        }
+    }
     public class HomeController : Controller
     {
         //
         // GET: /Home/
         BookContext db = new BookContext();
+        
 
         public ActionResult Index()
         {
             IEnumerable<Book> books = db.Books;
             ViewBag.Books = books;
-
             return View();
         }
         [HttpGet]
@@ -28,26 +75,7 @@ namespace Mvc_site.Controllers
             ViewBag.BookId = id;
             return View();
         }
-        [HttpGet]
-        public ActionResult Reg()
-        {
-            return View();
-        }
-        [HttpGet]
-        public ActionResult AllPersons()
-        {
-            IEnumerable<Person> persons = db.People;
-            ViewBag.People = persons;
-            return View();
-        }
-        [HttpPost]
-        public string Reg(Person per)
-        {
-            per.password = hash(per.password);
-            db.Entry(per).State = EntityState.Added;
-            db.SaveChanges();
-            return "<h1 align='center' >" + per.name +", Вы зареганы </h1>";
-        }
+
         [HttpGet]
         public string square(int a, int b)
         {
@@ -69,17 +97,35 @@ namespace Mvc_site.Controllers
             ViewBag.Purchases = purchases;
             return View();
         }
-        private string hash(string pass)
+        [HttpGet]
+        public string addToBasket(int id)
         {
-            int n = pass.Length;
-            string new_pass="";
-            foreach(char s in pass)
+            var book = db.Books.Find(id);
+            if(book!=null)
             {
-                new_pass += (Convert.ToChar(s + n)).ToString();
+                getBasket().add(book);
             }
-            return new_pass;
+            return "adssda";
         }
-
+        [HttpGet]
+        public ActionResult showBasket()
+        {
+            Basket b = getBasket();
+            ViewBag.basket = getBasket().books;
+            ViewBag.sum = b.sum;
+            ViewBag.count = b.count;
+            return View();
+        }
+        Basket getBasket()
+        {
+            Basket basket = (Basket)Session["basket"];
+            if (basket == null)
+            {
+                basket = new Basket();
+                Session["basket"] = basket;
+            }
+            return basket;
+        }
     }
 
 }

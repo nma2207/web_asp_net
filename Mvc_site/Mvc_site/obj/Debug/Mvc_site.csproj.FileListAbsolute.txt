@@ -27,6 +27,6 @@ D:\учеба\web\WebApplication1\Mvc_site\Mvc_site\bin\System.Web.Razor.xml
 D:\учеба\web\WebApplication1\Mvc_site\Mvc_site\bin\System.Web.WebPages.xml
 D:\учеба\web\WebApplication1\Mvc_site\Mvc_site\bin\System.Web.WebPages.Deployment.xml
 D:\учеба\web\WebApplication1\Mvc_site\Mvc_site\bin\System.Web.WebPages.Razor.xml
-D:\учеба\web\WebApplication1\Mvc_site\Mvc_site\obj\Debug\Mvc_site.csprojResolveAssemblyReference.cache
 D:\учеба\web\WebApplication1\Mvc_site\Mvc_site\obj\Debug\Mvc_site.dll
 D:\учеба\web\WebApplication1\Mvc_site\Mvc_site\obj\Debug\Mvc_site.pdb
+D:\учеба\web\WebApplication1\Mvc_site\Mvc_site\obj\Debug\Mvc_site.csprojResolveAssemblyReference.cache
