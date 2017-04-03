@@ -19,6 +19,7 @@ namespace Mvc_site.Models
 
                 base.Seed(db);
             }
+
         }
     }
 }

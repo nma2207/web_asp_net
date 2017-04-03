@@ -14,5 +14,12 @@ namespace Mvc_site.Models
 
         public string emal { get; set; }
         public string password { get; set; }
+        public Person()
+        {
+            id = 0;
+            name = "Незнакомец";
+            emal = "email";
+            password = "b";
+        }
     }
 }

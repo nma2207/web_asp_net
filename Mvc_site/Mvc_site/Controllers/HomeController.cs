@@ -62,12 +62,23 @@ namespace Mvc_site.Controllers
         //
         // GET: /Home/
         BookContext db = new BookContext();
-        
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
 
         public ActionResult Index()
         {
             IEnumerable<Book> books = db.Books;
             ViewBag.Books = books;
+            Person person = (Person)Session["currentUser"];
+            if (person == null)
+            {
+                person = new Person();
+                Session["currentUser"] = person;
+            }
+            ViewBag.User = person;
             return View();
         }
         [HttpGet]

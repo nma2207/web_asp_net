@@ -30,6 +30,7 @@ namespace Mvc_site.Controllers
             per.password = hash(per.password);
             db.Entry(per).State = EntityState.Added;
             db.SaveChanges();
+            Session["currentUser"] = per;
             return "<h1 align='center' >" + per.name + ", Вы зареганы </h1>";
         }
         private string hash(string pass)
