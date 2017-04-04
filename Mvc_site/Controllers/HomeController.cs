@@ -79,6 +79,8 @@ namespace Mvc_site.Controllers
                 Session[MagicConsts.CURRENT_USER] = person;
             }
             ViewBag.User = person;
+            ViewBag.Kind = MagicConsts.KIND_TO_NAME;
+            ViewBag.KindEnd = (int) Kind.End;
             return View();
         }
         [HttpGet]
@@ -126,6 +128,17 @@ namespace Mvc_site.Controllers
             ViewBag.basket = getBasket().books;
             ViewBag.sum = b.sum;
             ViewBag.count = b.count;
+            return View();
+        }
+        [HttpGet]
+        public ActionResult showByKind(int kind)
+        {
+            var Books = from b in db.Books
+                         where ((int)b.kind==kind)
+                         select b;
+            IEnumerable<Book> books = Books;
+            ViewBag.Books = books;
+            ViewBag.Kind = MagicConsts.KIND_TO_NAME[kind];
             return View();
         }
         Basket getBasket()

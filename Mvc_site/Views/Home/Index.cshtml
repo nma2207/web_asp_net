@@ -24,7 +24,20 @@
     </div>
 
     <div id="menu">
-        <h2>Меню</h2>
+       
+            <table>
+                <h2>
+                    @for (int i = 1; i < ViewBag.KindEnd; i++)
+                    {
+                        <tr>
+                            <td>
+                                <a href="Home/showByKind?kind=@i">@ViewBag.Kind[i]</a>
+                            </td>
+                        </tr>
+                    }
+                </h2>
+</table>
+
     </div>
 
     <div id="content">

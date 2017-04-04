@@ -140,6 +140,7 @@
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\book.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -180,6 +181,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Person\Enter.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Home\showByKind.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

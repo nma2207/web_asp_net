@@ -14,5 +14,8 @@ namespace Mvc_site.Models
 
         public string author {get; set; }
         public int price{get; set; }
+        public Kind kind { get; set; }
+        public string imagePath { get; set; }
+        public string description { get; set; }
     }
 }
