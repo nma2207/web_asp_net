@@ -1,0 +1,29 @@
+<div>
+    <p>Hi, @ViewBag.User.name</p>  
+    <h2> <p><a href="Person/Reg">Зарегаться</a></p></h2>
+    <h2> <p><a href="Person/AllPersons">все пользователи</a></p></h2>
+    <h2> <p><a href="Home/AllPurchases">Все покупки</a></p></h2>
+    <h2> <p> <a href="Home/showBasket">Показать корзину</a></p></h2>
+    <h3>Распродажа книг</h3>
+    <table>
+        <tr class="header">
+            <td><p>id</p></td>
+            <td><p>Название книги</p></td>
+            <td><p>Автор</p></td>
+            <td><p>Цена</p></td>
+            <td></td>
+        </tr>
+
+        @foreach (var b in ViewBag.Books)
+        {
+            <tr>
+                <td><p>@b.id</p></td>
+                <td><p>@b.name</p></td>
+                <td><p>@b.author</p></td>
+                <td><p>@b.price</p></td>
+                <td><p><a href="/Home/addToBasket?id=@b.id">Добавить в корзину</a></p></td>
+                <!---=<td><p><a href="/My/sum?a=6&b=5">Считать</a></p></td>-->
+            </tr>
+        }
+    </table>
+</div>

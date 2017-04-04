@@ -72,11 +72,11 @@ namespace Mvc_site.Controllers
         {
             IEnumerable<Book> books = db.Books;
             ViewBag.Books = books;
-            Person person = (Person)Session["currentUser"];
+            Person person = (Person)Session[MagicConsts.CURRENT_USER];
             if (person == null)
             {
                 person = new Person();
-                Session["currentUser"] = person;
+                Session[MagicConsts.CURRENT_USER] = person;
             }
             ViewBag.User = person;
             return View();
@@ -130,11 +130,11 @@ namespace Mvc_site.Controllers
         }
         Basket getBasket()
         {
-            Basket basket = (Basket)Session["basket"];
+            Basket basket = (Basket)Session[MagicConsts.BASKET];
             if (basket == null)
             {
                 basket = new Basket();
-                Session["basket"] = basket;
+                Session[MagicConsts.BASKET] = basket;
             }
             return basket;
         }

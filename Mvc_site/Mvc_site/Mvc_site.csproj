@@ -122,6 +122,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MagicConsts.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookContext.cs" />
     <Compile Include="Models\BookStore.cs" />
@@ -176,6 +177,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\showBasket.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Person\Enter.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -30,8 +30,36 @@ namespace Mvc_site.Controllers
             per.password = hash(per.password);
             db.Entry(per).State = EntityState.Added;
             db.SaveChanges();
-            Session["currentUser"] = per;
+            Session[MagicConsts.CURRENT_USER] = per;
             return "<h1 align='center' >" + per.name + ", Вы зареганы </h1>";
+        }
+        [HttpGet]
+        public string Exit()
+        {
+            Person current = (Person)Session[MagicConsts.CURRENT_USER];
+            string name = current.name;
+            Session[MagicConsts.CURRENT_USER] = new Person();
+            return "<h1 align='center'> Пока, " + name + " </h1>";
+        }
+        [HttpGet]
+        public ActionResult Enter()
+        {
+            return View();
+        }
+        [HttpPost]
+        public string Enter(Person per)
+        {
+            var people = from p in db.People
+                         where (p.emal == per.emal)
+                         select p;
+            if (people.Count() == 0)
+                return "Такого пользователя нет";
+            if (hash(per.password) != people.First().password)
+            {
+                return "Неправльный пароль";
+            }
+            Session[MagicConsts.CURRENT_USER] = people.First();
+            return "Привет, " + people.First().name;
         }
         private string hash(string pass)
         {
