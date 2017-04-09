@@ -138,7 +138,9 @@
     <Content Include="App_Data\Bookstore_log.ldf">
       <DependentUpon>Bookstore.mdf</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
+    <Compile Include="Content\Site.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Content Include="Global.asax" />
     <Content Include="Images\book.jpg" />
     <Content Include="Web.config">

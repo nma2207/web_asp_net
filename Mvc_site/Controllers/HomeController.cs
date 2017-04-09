@@ -124,6 +124,15 @@ namespace Mvc_site.Controllers
         [HttpGet]
         public ActionResult showBasket()
         {
+            Person person = (Person)Session[MagicConsts.CURRENT_USER];
+            if (person == null)
+            {
+                person = new Person();
+                Session[MagicConsts.CURRENT_USER] = person;
+            }
+            ViewBag.User = person;
+            ViewBag.Kind = MagicConsts.KIND_TO_NAME;
+            ViewBag.KindEnd = (int)Kind.End;
             Basket b = getBasket();
             ViewBag.basket = getBasket().books;
             ViewBag.sum = b.sum;
@@ -133,12 +142,21 @@ namespace Mvc_site.Controllers
         [HttpGet]
         public ActionResult showByKind(int kind)
         {
+            Person person = (Person)Session[MagicConsts.CURRENT_USER];
+            if (person == null)
+            {
+                person = new Person();
+                Session[MagicConsts.CURRENT_USER] = person;
+            }
+            ViewBag.User = person;
+            ViewBag.Kind = MagicConsts.KIND_TO_NAME;
+            ViewBag.KindEnd = (int)Kind.End;
             var Books = from b in db.Books
                          where ((int)b.kind==kind)
                          select b;
             IEnumerable<Book> books = Books;
             ViewBag.Books = books;
-            ViewBag.Kind = MagicConsts.KIND_TO_NAME[kind];
+            ViewBag.booksKind = MagicConsts.KIND_TO_NAME[kind];
             return View();
         }
         Basket getBasket()

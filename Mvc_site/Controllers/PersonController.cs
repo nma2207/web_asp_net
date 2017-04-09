@@ -12,6 +12,11 @@ namespace Mvc_site.Controllers
     public class PersonController:Controller
     {
         BookContext db = new BookContext();
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
         [HttpGet]
         public ActionResult Reg()
         {
@@ -71,13 +76,6 @@ namespace Mvc_site.Controllers
             }
             return new_pass;
         }
-
-        //public void Execute(RequestContext requestContext)
-        //{
-        //        string ip = requestContext.HttpContext.Request.UserHostAddress;
-        //        var response = requestContext.HttpContext.Response;
-        //        response.Write("<h2> Ваш IP: " + ip + "/<h2>");
-        //}
 
     }
 }

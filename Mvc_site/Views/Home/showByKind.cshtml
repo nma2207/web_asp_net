@@ -1,36 +1,89 @@
 ﻿@{
     Layout = "Shared\\_Layout.cshtml";
 }
+<div id="container">
+    <div id="header">
+        <h2>Добро пожаловать на наш сайт, @ViewBag.User.name</h2>
+        <h3 align="right">
+            @if (ViewBag.User.id == 0)
+            {
 
-<h2>showByKind</h2>
-<table>
-    <tr class="header">
-        <td><p>id</p></td>
-        <td><p>Название книги</p></td>
-        <td><p>Автор</p></td>
-        <td><p>Цена</p></td>
-        <td><p>Вид</p></td>
-        <td><p>Путь</p></td>
-        <td><p>Описание</p></td>
-        <td></td>
-    </tr>
+                <a href="Person/Enter">Войти</a>
+                <a href="Person/Reg">Зарегистрироваться</a>
+                <p><a href="Home/showBasket">Корзина</a></p>
+            }
+            else
+            {
+                <a href="Person/Exit">Выйти</a>
+            }
 
-    @foreach (var b in ViewBag.Books)
-    {
-        <tr>
-            <td><p>@b.id</p></td>
-            <td><p>@b.name</p></td>
-            <td><p>@b.author</p></td>
-            <td><p>@b.price</p></td>
-            <td><p>@ViewBag.Kind</p></td>
-            <td>
-                <img src="D:/учеба/web/web_asp_net/Mvc_site/Mvc_site/Images/@b.imagePath" alt="альтернативный текст" />
-                </td>
-                <!--<td><p>@b.imagePath</p></td>-->
-<td><p>@b.description</p></td>
-            
-            <!---=<td><p><a href="/My/sum?a=6&b=5">Считать</a></p></td>-->
-        </tr>
-    }
-</table>
+        </h3>
+    </div>
+
+    <div id="navigation">
+        <h2>Блок навигации</h2>
+    </div>
+
+<!--   <div id="menu">
+
+        <table>
+            <h2>
+                @for (int i = 1; i < ViewBag.KindEnd; i++)
+                {
+                    <tr>
+                        <td>
+                            <a href="Home/showByKind?kind=@i">@ViewBag.Kind[i]</a>
+                        </td>
+                    </tr>
+                }
+            </h2>
+        </table>
+
+    </div>-->
+
+    <div id="content" width="1200">
+        <h2>
+            <table>
+                <tr class="header">
+                    <td><p>id</p></td>
+                    <td><p>Название книги</p></td>
+                    <td><p>Автор</p></td>
+                    <td><p>Цена</p></td>
+                    <td><p>Вид</p></td>
+                    <td><p>Путь</p></td>
+                    <td><p>Описание</p></td>
+                    <td></td>
+                </tr>
+
+                @foreach (var b in ViewBag.Books)
+                {
+                    <tr>
+                        <td><p>@b.id</p></td>
+                        <td><p>@b.name</p></td>
+                        <td><p>@b.author</p></td>
+                        <td><p>@b.price</p></td>
+                        <td><p>@ViewBag.booksKind</p></td>
+                        <td>
+                            <img src="D:/учеба/web/web_asp_net/Mvc_site/Mvc_site/Images/@b.imagePath" alt="альтернативный текст" width="100" height="77" />
+                        </td>
+                        <td><p>@b.description</p></td>
+
+                    </tr>
+                }
+            </table>
+        </h2>
+    </div>
+
+    <div id="clear">
+
+    </div>
+
+    <div id="footer">
+        <h2>Подвал сайта</h2>
+    </div>
+</div>
+
+
+
+
 
